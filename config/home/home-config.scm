@@ -16,7 +16,7 @@
 		  )))
  (services (list (service home-openssh-service-type
 			  (home-openssh-configuration
-			   (add-keys-to-agent "yes") ;; testing 123
+			   (add-keys-to-agent "yes")
 			   (hosts
 			    (list (openssh-host (name "github.com")
 						(user "git")
