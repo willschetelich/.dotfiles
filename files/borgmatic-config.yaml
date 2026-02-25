@@ -1,0 +1,34 @@
+repositories:
+  - path: /mnt/flashdrive/borg
+    label: flashdrive
+
+source_directories:
+  - /home/will/.dotfiles
+  - /home/will/peitho-test
+  - /home/will/external-ace-test
+
+exclude_patterns:
+  - '*.pyc'
+  - '__pycache__'
+  - '*.log'
+  - '.cache'
+  - 'node_modules'
+
+retention:
+  keep_daily: 7
+  keep_weekly: 4
+  keep_monthly: 6
+
+compression: lz4
+
+checks:
+  - name: repository
+    frequency: 2 weeks
+  - name: archives
+    frequency: 4 weeks
+
+before_backup:
+  - echo "Starting borgmatic backup..."
+
+after_backup:
+  - echo "Backup complete."
