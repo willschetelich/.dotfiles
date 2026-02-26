@@ -1,7 +1,7 @@
 (define-module (config home services ssh-service-config)
   #:use-module (gnu services)
   #:use-module (gnu home services ssh)
-  #:export (home-open-ssh-service))
+  #:export (home-openssh-service))
 
   (define home-openssh-service
     (service home-openssh-service-type

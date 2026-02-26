@@ -6,6 +6,7 @@
 ;; to the 'guix system reconfigure' command to effect your
 ;; changes.
 
+(define-module (config systems system))
 
 ;; Indicate which modules to import to access the variables
 ;; used in this configuration.
