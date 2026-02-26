@@ -6,7 +6,8 @@
  #:use-module (nongnu packages productivity)
  #:use-module (gnu services backup)
  #:use-module (config home services ssh-service-config) ;; imports custom config
- #:use-module (config home services borgmatic-service-config) 
+ #:use-module (config home services borgmatic-service-config)
+ #:use-module (config home services shell-services-config)
 	     )
 	  
 
@@ -23,7 +24,8 @@
 
  (services (list
 	    home-openssh-service
-	    borgmatic-files-service 
+	    borgmatic-files-service
+	    shell-service
 	    )
 	   )
  )
