@@ -6,7 +6,7 @@
  #:use-module (nongnu packages productivity)
  #:use-module (gnu home services ssh)
  #:use-module (gnu services backup)
- #:use-module (config home services ssh-service-config.scm)
+ #:use-module (config home services ssh-service-config)
 	     )
 	  
 
@@ -21,7 +21,8 @@
 		  "borg"
 		  )))
 
- (services (list 
+ (services (list
+	    (
 		 (service home-files-service-type
 			  `((".config/borgmatic/config.yaml"
 			     ,(local-file "/home/will/.dotfiles/files/borgmatic-config.yaml"))))

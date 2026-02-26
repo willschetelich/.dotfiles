@@ -14,9 +14,10 @@ exclude_patterns:
   - '.cache'
   - 'node_modules'
 
-keep_daily: 7
-keep_weekly: 4
-keep_monthly: 6
+retention:
+  keep_daily: 7
+  keep_weekly: 4
+  keep_monthly: 6
 
 compression: lz4
 
@@ -26,8 +27,8 @@ checks:
   - name: archives
     frequency: 4 weeks
 
-commands:
-  - when: before_backup
-    run: echo "Starting borgmatic backup..."
-  - when: after_backup
-    run: echo "Backup complete."
+before_backup:
+  - echo "Starting borgmatic backup..."
+
+after_backup:
+  - echo "Backup complete."
