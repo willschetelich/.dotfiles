@@ -1,5 +1,16 @@
+;; Melpha
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
 
-;; Enable Python in Org Babel
+;; turn off noisy file generation 
+(setq make-backup-files nil)
+(setq auto-save-default nil)
+(setq create-lockfiles nil)
+
+
+
+;; in Org Babel
 ;; Load the language
 (org-babel-do-load-languages
  'org-babel-load-languages
