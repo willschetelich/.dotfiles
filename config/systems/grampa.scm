@@ -1,17 +1,15 @@
-;; This is an operating system configuration generated
-;; by the graphical installer.
-;;
-;; Once installation is complete, you can learn and modify
-;; this file to tweak the system configuration, and pass it
-;; to the 'guix system reconfigure' command to effect your
-;; changes.
 
-(define-module (config systems system))
+(define-module (config systems grampa)
+#:use-module (gnu)
+#:use-module (guix)
+#:use-module (nongnu packages linux)
+#:use-module (config systems base-system))
 
-;; Indicate which modules to import to access the variables
-;; used in this configuration.
-(use-modules (gnu) (nongnu packages linux))
+
+
 (use-service-modules cups desktop networking ssh xorg)
+
+
 
 (operating-system
  (kernel linux)
@@ -19,7 +17,7 @@
   (locale "en_US.utf8")
   (timezone "America/New_York")
   (keyboard-layout (keyboard-layout "us"))
-  (host-name "ebay-thinkpad")
+  (host-name "thinkpad")
 
   ;; The list of user accounts ('root' is implicit).
   (users (cons* (user-account

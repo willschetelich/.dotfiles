@@ -6,17 +6,16 @@
  #:use-module (nongnu packages productivity)
  #:use-module (gnu services backup)
  #:use-module (gnu packages racket)
+ #:use-module (config home services emacs)
+
  #:use-module (config home services ssh-service-config) ;; imports custom config
  #:use-module (config home services borgmatic-service-config)
- #:use-module (config home services shell-services-config)
- 
-	     )
+ #:use-module (config home services shell-services-config))
 	  
 
 (home-environment
  (packages (specifications->packages
 	    (list "git"
-		  "emacs"
 		  "obsidian"
 		  "google-chrome-stable"
 		  "openssh"
@@ -25,12 +24,12 @@
 		  "racket"
 		  )))
 
- (services (list
-	    home-openssh-service
-	    borgmatic-files-service
-	    shell-service
-	    )
-	   )
- )
+(services 
+  (append
+   emacs-home-service ;; Adds both the Emacs package and the init.el symlink
+   (list home-openssh-service
+         borgmatic-files-service
+         shell-service))))
+		 
 	
 
