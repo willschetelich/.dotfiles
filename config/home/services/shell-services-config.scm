@@ -9,6 +9,6 @@
   (service home-bash-service-type ;; returns a service object
 	   (home-bash-configuration ;; this is a record with fields like...
 	    (aliases '(("guix-home-reconfigure"
-			. "guix home -L ~/.dotfiles reconfigure ~/.dotfiles/config/home/machines/$(hostname).scm")
+			. "guix home -L ~/.dotfiles reconfigure ~/.dotfiles/config/home/machines/$(hostname)-home.scm")
 		       ("guix-system-reconfigure"
-			. "sudo guix system -L ~/.dotfiles reconfigure ~/.dotfiles/config/system/machines/$(hostname).scm"))))))
+			. "sudo guix system -L ~/.dotfiles reconfigure ~/.dotfiles/config/system/machines/$(hostname)-system.scm"))))))
