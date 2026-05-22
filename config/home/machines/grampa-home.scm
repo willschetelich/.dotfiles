@@ -1,4 +1,4 @@
-(define-module (config home machines grampa)
+(define-module (config home machines grampa-home)
   #:use-module (gnu)
   #:use-module (gnu home)
   #:use-module (config home base-home))

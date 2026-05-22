@@ -1,4 +1,4 @@
-(define-module (config home machines thinkpad)
+(define-module (config home machines thinkpad-home)
   #:use-module (gnu)
   #:use-module (gnu home)
   #:use-module (config home base-home))
