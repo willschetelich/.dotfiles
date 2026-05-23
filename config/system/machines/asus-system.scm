@@ -11,10 +11,14 @@
 ;; route and no DNS -- the /24 gives an on-link route to the 10.0.0.0/24 LAN.
 ;; Internet/DNS come over wifi via NetworkManager (kept from %desktop-services).
 ;;
-;; TODO before deploying:
-;;  - replace <ETH-ASUS> with the real wired interface name (`ip link`).
+;; Wired interface is enp3s0 (predictable name on the installed system; the
+;; live USB shows it as eth0).
+;;
+;; TODO before `guix system reconfigure` on the machine:
 ;;  - replace the placeholder UUIDs below with this machine's real values
-;;    from `blkid` (the LUKS partition + the EFI partition).
+;;    from `blkid` (the LUKS partition + the EFI partition). They were filled
+;;    in at install time but in the ephemeral live-USB clone, so they are NOT
+;;    committed here.
 (operating-system
  (inherit base-system)
  (host-name "asus")
@@ -42,7 +46,11 @@
  (services
   (cons* (service static-networking-service-type
                   (list (static-networking
+                         ;; Rename the Shepherd provision so it doesn't clash
+                         ;; with NetworkManager's 'networking (from
+                         ;; %desktop-services), which manages wifi.
+                         (provision '(networking-wired))
                          (addresses (list (network-address
-                                           (device "<ETH-ASUS>")
+                                           (device "enp3s0")
                                            (value "10.0.0.4/24")))))))
          (operating-system-user-services base-system))))

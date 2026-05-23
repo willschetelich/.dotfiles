@@ -8,8 +8,9 @@
 (define emacs-home-service
   (list
    ;; 1. Install Emacs to the home profile
-   (home-profile-service-type-service
-    (list emacs-pgtk)) ; Or use 'emacs' depending on your graphics server
+   (simple-service 'emacs-package
+                   home-profile-service-type
+                   (list emacs-pgtk)) ; Or use 'emacs' depending on your graphics server
 
    ;; 2. Symlink the init.el file to ~/.config/emacs/init.el
    (simple-service

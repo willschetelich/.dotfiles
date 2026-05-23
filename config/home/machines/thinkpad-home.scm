@@ -8,8 +8,10 @@
 ;; imports are needed here.
 (home-environment
  (inherit base-home)
+ ;; NOTE: Obsidian is not packaged in Guix or nonguix (proprietary Electron
+ ;; app), so it can't go here. Install it out-of-band, e.g. via Flatpak:
+ ;;   flatpak install flathub md.obsidian.Obsidian
  (packages (append (specifications->packages
-                    (list "obsidian"
-                          "google-chrome-stable"
+                    (list "google-chrome-stable"
                           "lilypond"))
                    base-home-packages)))
